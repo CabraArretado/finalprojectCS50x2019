@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Guest List
+{% endblock %}
+
+{% block main %}
+    <script>
+    $(document).ready(function() {
+        $('#table').DataTable();
+
+    });
+    </script>
+    <!-- http://getbootstrap.com/docs/4.1/components/alerts/ -->
+    {% if guestList %}
+    <table id="table" class="table table-striped table-bordered" style="width:100%">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>E-mail</th>
+            </tr>
+        </thead>
+            {% for guest in guestList %}
+            <tr>
+                <td>{{ guest.lastname }}, {{ guest.firstname }}</td>
+                <td>{{ guest.email }}</td>
+            </tr>
+            {% endfor %}
+    {% elif not guestList %}
+        <div class="alert alert-info" role="alert">
+         Unhapilly none has confirmed presence in your event yet.
+        <div> Click <a href="/"><b>here</b></a> to go back to the mainpage!</div>
+        </div>
+
+    {% endif %}
+    </table>
+
+{% endblock %}

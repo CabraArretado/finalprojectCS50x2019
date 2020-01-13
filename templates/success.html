@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Success!
+{% endblock %}
+
+{% block main %}
+<div class="alert alert-success" role="alert">
+    <h1>Sucess: {{ message }}</h1>
+</div>
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script>
+// Redirect for the index in 10 seconds
+$(document).ready(function(){
+    setTimeout(
+        function()
+        {
+            location.replace("/")
+        }, 10000);
+});
+</script>
+{% endblock %}

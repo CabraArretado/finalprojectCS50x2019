@@ -1,0 +1,113 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Register Event
+{% endblock %}
+
+{% block main %}
+    <form action="/register_event" method="post" id="form">
+<div class="form-group">
+    <label for="eventName">Event Name</label>
+   <input autocomplete="off" autofocus class="form-control" name="eventName" id="eventName" placeholder="Event Name" type="text">
+</div>
+<div class="form-group">
+    <label for="hosterName">Hoster Name</label>
+   <input autocomplete="off" class="form-control" name="hosterName" id="hosterName" placeholder="Hoster Name" type="text">
+</div>
+<div class="form-group">
+    <label for="hosterPhone">Hoster Phone</label>
+   <input class="form-control" name="hosterPhone" id="hosterPhone" type="tel" pattern="[0-9]{3}[0-9]{3}[0-9]{4}" required>
+   <small id="hosterPhoneHelper" class="form-text text-muted">Format: 1234567890</small>
+</div>
+<div class="form-group">
+    <label for="inputDate">Event's Date</label>
+   <input class="form-control" name="inputDate" id="inputDate" type="date">
+</div>
+<div class="form-group">
+    <label for="inputTime">Event's Time</label>
+   <input class="form-control" name="inputTime" id="inputTime" type="time">
+</div>
+<div class="form-group">
+   <label for="inputAddress">Address</label>
+   <input type="text" class="form-control" name="inputAddress" id="inputAddress" placeholder="1234 South St">
+</div>
+<div class="form-group">
+   <label for="inputAddress2">Address 2</label>
+   <input type="text" class="form-control" name="inputAddress2" id="inputAddress2" placeholder="Apartment, studio, or floor">
+</div>
+<div class="container">
+   <div class="form-group">
+      <label for="inputCity">City</label>
+      <input type="text" class="form-control" name="inputCity" id="inputCity">
+   </div>
+   <div class="form-group">
+      <label for="inputState">State</label>
+      <select id="inputState" name="inputState" class="form-control">
+         <option selected>Choose...</option>
+         <option value="AL">AL</option>
+         <option value="AK">AK</option>
+         <option value="AR">AR</option>
+         <option value="AZ">AZ</option>
+         <option value="CA">CA</option>
+         <option value="CO">CO</option>
+         <option value="CT">CT</option>
+         <option value="DC">DC</option>
+         <option value="DE">DE</option>
+         <option value="FL">FL</option>
+         <option value="GA">GA</option>
+         <option value="HI">HI</option>
+         <option value="IA">IA</option>
+         <option value="ID">ID</option>
+         <option value="IL">IL</option>
+         <option value="IN">IN</option>
+         <option value="KS">KS</option>
+         <option value="KY">KY</option>
+         <option value="LA">LA</option>
+         <option value="MA">MA</option>
+         <option value="MD">MD</option>
+         <option value="ME">ME</option>
+         <option value="MI">MI</option>
+         <option value="MN">MN</option>
+         <option value="MO">MO</option>
+         <option value="MS">MS</option>
+         <option value="MT">MT</option>
+         <option value="NC">NC</option>
+         <option value="NE">NE</option>
+         <option value="NH">NH</option>
+         <option value="NJ">NJ</option>
+         <option value="NM">NM</option>
+         <option value="NV">NV</option>
+         <option value="NY">NY</option>
+         <option value="ND">ND</option>
+         <option value="OH">OH</option>
+         <option value="OK">OK</option>
+         <option value="OR">OR</option>
+         <option value="PA">PA</option>
+         <option value="RI">RI</option>
+         <option value="SC">SC</option>
+         <option value="SD">SD</option>
+         <option value="TN">TN</option>
+         <option value="TX">TX</option>
+         <option value="UT">UT</option>
+         <option value="VT">VT</option>
+         <option value="VA">VA</option>
+         <option value="WA">WA</option>
+         <option value="WI">WI</option>
+         <option value="WV">WV</option>
+         <option value="WY">WY</option>
+      </select>
+   </div>
+   <div class="form-group">
+      <label for="inputZip">Zip</label>
+      <input type="text" class="form-control" id="inputZip" name="inputZip">
+   </div>
+   <div class="form-group alert-info">
+    <label for="event_code">Event's Code</label>
+   <input class="form-control" name="event_code" id="event_code"  minlength="6" maxlength="6" type="text" placeholder="EVENT'S CODE">
+   <small id="event_codeHelper" class="form-text text-muted">This is the code your guests will use to find your event in the site. Exactly 6 characters.</small>
+</div>
+           <div class="form-group">
+            <button class="btn btn-primary" type="submit" id="button">Register</button>
+        </div>
+</div>
+{% endblock %}

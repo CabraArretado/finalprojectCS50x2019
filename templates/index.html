@@ -1,0 +1,99 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+
+    <!-- If the user is a creator but do not has event -->
+    {% if creator and not eventQuery %}
+    <div class="container">
+        <div class="alert alert-info" role="alert">
+          Hello, <b>{{ user.firstname }}</b>! Welcome to our site! Here you can make your presence list of your event and your guests can check presence.
+        </div>
+        <div>
+            <p>Looks like you don't have any event in our site. Click in the button bellow to create one.</p>
+            <button type="button" class="btn btn-primary" id="createEvent" name="createEvent">Create your event!</button>
+        </div>
+    </div>
+
+    <!-- If the user is a creator and has event -->
+    {% elif creator and eventQuery %}
+    <div class="container">
+        <div class="alert alert-info" role="alert">
+          Hello, <b>{{ user.firstname }}</b>! Welcome to our site! Here you can see the information of your event and check the guests who confirmed presence.
+        </div>
+        <div class="container">
+            <b>Event:</b> {{ eventQuery.event_name }}
+            <br />
+            <b>Date:</b> {{ eventQuery.date }} at {{ eventQuery.time }}
+            <br />
+            <b>Location:</b> {{ place.adress }}
+            {{ place.city }} - {{ place.state }}
+        </div>
+        <br />
+        <div class="container">
+        <button type="button" class="btn btn-primary" id="guestList">Check the guests who confirmed presence list</button>
+        </div>
+    </div>
+
+    <!-- If the user is a guest who didn't confirmed presence yet -->
+    {% elif not creator and not user.presence %}
+        <div class="alert alert-info" role="alert">
+          Hello, <b>{{ user.firstname }}</b>! Welcome to our site! Thank you for having registed! Please, confirm the information of the event you want to check in and then confirm your presence.
+        </div>
+        <div class="container">
+            <b>Event:</b> {{ eventQuery.event_name }}
+            <br />
+            <b>Date:</b> {{ eventQuery.date }} at {{ eventQuery.time }}
+            <br />
+            <b>Location:</b> {{ place.adress }}
+            {{ place.city }} - {{ place.state }}
+        </div>
+        <button type="button" class="btn btn-primary" id="checkin">Check presence!</button>
+
+    <!-- If the user is a guest who confirmed presence-->
+    {% elif not creator and user.presence %}
+        <div class="alert alert-info" role="alert">
+          Hello, <b>{{ user.firstname }}</b>! How have youn been? Your presence was confirmed in the event bellow.
+        </div>
+        <div class="container">
+            <b>Event:</b> {{ eventQuery.event_name }}
+            <br />
+            <b>Date:</b> {{ eventQuery.date }} at {{ eventQuery.time }}
+            <br />
+            <b>Location:</b> {{ place.adress }}
+            {{ place.city }} - {{ place.state }}
+        </div>
+        <div class="container">
+        If you cannot go anymore please click in the button:
+        <button type="button" class="btn btn-primary" id="markoff">Mark off presence</button>
+        </div>
+
+    {% endif %}
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script>
+        $(document).ready(function(){
+
+            // Redirect to the /register_event when respective the button is clicked
+            $("#createEvent").click(function(){
+                location.replace("/register_event")
+            });
+
+            // Redirect to the /edit_info when respective the button is clicked
+            $("#markoff").click(function(){
+                location.replace("/markoff")
+            });
+
+            // Redirect to the /guest_list when respective the button is clicked
+            $("#guestList").click(function(){
+                location.replace("/guest_list")
+            });
+            // Check the guest in the list
+            $("#checkin").click(function(){
+                location.replace("/checkin")
+            });
+        });
+    </script>
+{% endblock %}

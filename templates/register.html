@@ -1,0 +1,61 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block main %}
+    <form action="/register" method="post" id="form">
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="username" id="username" placeholder="Username" type="text">
+        </div>
+        <div class="form-group">
+            <input autocomplete="off" class="form-control" name="email" id="email" placeholder="Email" type="email">
+        </div>
+        <div class="form-group">
+            <input class="form-control" name="password" placeholder="Password" type="password">
+        </div>
+        <div class="form-group">
+            <input class="form-control" name="confirmation" placeholder="Confirm your password" type="password">
+        </div>
+        <div class="form-group">
+            <input autocomplete="off" class="form-control" name="firstname" id="firstname"  placeholder="First Name" type="text">
+        </div>
+        <div class="form-group">
+            <input autocomplete="off" class="form-control" name="lastname" placeholder="Last Name" type="text">
+        </div>
+        <div class="form-group" id="maker">
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" id="attending" name="creator" value=0>
+                <label class="form-check-label" for="attending">Attending a event</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" id="creating" name="creator" value=1>
+                <label class="form-check-label" for="creating"> Creating a planner</label>
+            </div>
+        </div>
+        <div class="form-group" id="complementary">
+            <!-- Complementary form comes here after radio is selected -->
+        </div>
+        <div class="form-group">
+            <button class="btn btn-primary" type="submit" id="button">Register</button>
+        </div>
+    </form>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script>
+        // Function that make the Event Code input to appear if the user select the "Attending Event" radio
+        $(document).ready(function(){
+            $("#maker").change(function(){
+                   var act = $('input:radio[name=creator]:checked').val();
+                   if (act == 0)
+                   {
+                        $("#complementary").html('<div class="form-group"><input autocomplete="off" minlength="6" maxlength="6" class="form-control" name="event_code" id="eventcode" placeholder="EVENT CODE" type="text"><small id="event_codeHelper" class="form-text text-muted">This is the code must be provided by the hoster. Without it you cannot register your participation. Exactly 6 characters.</small></div>')
+                   }
+                   else
+                   {
+                       $("#complementary").html("")
+                   }
+            });
+        });
+    </script>
+{% endblock %}
