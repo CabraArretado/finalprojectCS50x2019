@@ -1,16 +1,13 @@
-FINAL PROJECT FOR CS50x 2019
+Event Planner - FINAL PROJECT FOR CS50x 2019
 --
 
 by Felipe Moura
 
-English is my second language, forgive me for my grammar
+English is my second language, forgive me for my grammar.
 
-My project is an event planner where you can make a presence list for your event.
-It has the same technology used on the Finance project. The Finance was used as base for that project, but code were made again by scratch, anyway little parts of that were used here.
-I used Python (Flask), SQL (SQLite), JavaScript(JQuery, Bootstrap) and HTML&CSS (Bootstrap).
 
-It's a small project without all the functionalities that I would wish, but it shows some of the most important knowledges that I have learned in the CS50x. I intend to still working in this project for learning proposes overtime.
-
+This project was my final project for CS50x. I used Python (Flask), SQL (SQLite), JavaScript(JQuery, Bootstrap) and HTML & CSS (Bootstrap).
+It's a simple web a that allows the user to create an event and other users to check in presence in this same event.
 
 
 /register
@@ -30,3 +27,4 @@ User registered as a guest but presence not checked: The user will see the event
 User registered as a guest and checked presence: The user will see the event information and a button that gives an option to mark off their presence in the event.
 _______________________________________________________________________________________________________________________
 1-13-2020 - Uploaded, version submited to CS50x at December 31th 2019
+1-23-2020 - Upadated README
