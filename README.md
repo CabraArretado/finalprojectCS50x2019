@@ -26,5 +26,5 @@ User registered as creator of event and with event registered: The information o
 User registered as a guest but presence not checked: The user will see the event information and a button to check presence in the event
 User registered as a guest and checked presence: The user will see the event information and a button that gives an option to mark off their presence in the event.
 _______________________________________________________________________________________________________________________
-1-13-2020 - Uploaded, version submited to CS50x at December 31th 2019
+1-13-2020 - Uploaded, version submited to CS50x at December 31th 2019 \n
 1-23-2020 - Upadated README
