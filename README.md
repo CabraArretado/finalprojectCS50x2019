@@ -3,10 +3,18 @@ Event Planner - FINAL PROJECT FOR CS50x 2019
 
 by Felipe Moura
 
-English is my second language, forgive me for my grammar.
+This project was my final project for CS50x. 
+**I used:**
+- Python
+- Flask
+- SQL
+- SQLite
+- JavaScript
+- JQuery
+- Bootstrap 
+- HTML
+- CSS
 
-
-This project was my final project for CS50x. I used Python (Flask), SQL (SQLite), JavaScript(JQuery, Bootstrap) and HTML & CSS (Bootstrap).
 It's a simple web a that allows the user to create an event and other users to check in presence in this same event.
 
 
